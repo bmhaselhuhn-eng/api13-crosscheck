@@ -200,41 +200,14 @@ td{padding:var(--sm) var(--md); border-bottom:1px solid var(--hairline);
  textarea{width:100%;height:280px;background:#000;color:#fff;border:1px solid #2a4a68;
    border-radius:var(--r-md);font:12px/1.5 ui-monospace,monospace;padding:var(--md)}
 </style></head><body>
-<div id="intro" style="display:none;max-width:860px;margin:0 auto;padding:32px 24px;line-height:1.6;text-align:left"><h2>Same band? A blind check</h2>
-<p>Each screen shows two band crops from one paper, side by side, and a difference panel. For every
-pair, answer the one question in the rule below: <b>are these two crops one photographic exposure of one
-physical band?</b> Please read the rule once before the first pair.</p>
-<h3>Keys</h3>
-<ul>
-<li><b>Y</b> same. Then mark every indicator you can see and press <b>Enter</b>:
- <b>1</b> off-band dust or speck, <b>2</b> off-band scratch or hair, <b>7</b> off-band bubble,
- <b>3</b> edge nick or notch with the same shape and position, <b>4</b> matching grain,
- <b>5</b> compression blocks, <b>6</b> difference panel blank throughout, background included.
- Press <b>0</b> if you cannot name one.</li>
-<li><b>N</b> different. A pair with no shared accident is different (rule section 4).</li>
-<li><b>U</b> cannot tell: the evidence is there but cannot be read.</li>
-<li><b>Backspace</b> undoes the last answer. <b>+</b> and <b>&minus;</b> zoom.</li>
-</ul>
-<p>Every pair needs an answer. There is no skip.</p>
-<p>The number above each pair (NCC) is the similarity score that put the pair in front of you. As the
-rule says, it cannot be the reason for a verdict.</p>
-<h3>Stopping and coming back</h3>
-<p>Your answers are saved in this browser after each one. If you close the tab or restart the computer,
-open the same link in the same browser and it continues where you stopped. A different browser or
-computer starts again from the first pair.</p>
-<h3>Sending your answers</h3>
-<p>Check that your initials (<b>AVG</b>) are in the box at the top. The export screen opens after the last
-pair, or at any time with <b>E</b> or the Export button.</p>
-<ol>
-<li>Press <b>Send to the lab</b> and wait for the line that says your verdicts were received.</li>
-<li>Press both <b>Download</b> buttons and keep the two files. If no receipt appears, email them to
-Benjamin.</li>
-</ol>
-<p>You can send at the end of any sitting. Each send carries everything answered so far, and the last
-one is the one used. Press <b>E</b> again to go back to the pairs.</p>
-<p>The <b>Rule and help</b> button at the top brings this page back.</p>
-<hr>
-<h2>The rule</h2>
+<div id="intro" style="display:none;max-width:860px;margin:0 auto;padding:32px 24px;line-height:1.6;text-align:left"><p><button class="opt" id="introgo2" onclick="hideIntro()">Back to the pairs</button></p><h2>Help</h2>
+<p>For each pair: are these two crops one photographic exposure of one physical band?
+<b>Y</b> same, then mark every indicator you see (1 to 7, listed under the pair) and press <b>Enter</b>,
+or <b>0</b> if none can be named. <b>N</b> different. <b>U</b> cannot tell. <b>Backspace</b> undoes.</p>
+<p>Answers are saved in this browser as you go. Open the same link in the same browser to continue.</p>
+<p>When you stop or finish, press <b>E</b>, then <b>Send to the lab</b>, and wait for the line saying the
+answers were received. The two Download buttons keep a copy; email those if no receipt appears.</p>
+<details><summary>The rule: SAME_BAND_RULE 1.3, sections 2 to 7</summary>
 <p>SAME_BAND_RULE version 1.3-draft, sections 2 to 7.</p>
 <h3>2. The question being answered</h3>
 <blockquote>Are these two crops renderings of <b>one photographic exposure of one physical band</b>?</blockquote>
@@ -271,6 +244,7 @@ one is the one used. Press <b>E</b> again to go back to the pairs.</p>
 <p><b>Disagreement between two readings is not the same as error in either.</b> Of the two pairs that changed on the 4 August blinded re-read, kp002 was an error in the original reading and kp048 was an error in the re-read. A 10% disagreement rate over twenty pairs therefore points to about 5% error in the set, not 10%. Report both, and do not quote the disagreement rate as if it were the error rate.</p>
 <p>Only <code>confirmed</code> rows enter a set that carries a published number. <code>probable</code> rows are kept and reported separately, because a set that quietly mixes the two cannot be audited.</p>
 <p><b>Target: 95% of calls reproduced on a blinded re-read, against the 90% measured with no rule.</b> Below 90%, the rule has not helped and needs revising rather than more labeling. Measure it with the re-read agreement check on every round, not once. Under 1.3, it is measured again before any pair is adjudicated under 1.3.</p>
+</details>
 
 <p><button class="opt" id="introgo" onclick="hideIntro()">Start</button></p></div>
 <div class="bar"><strong>Same image?</strong>
@@ -309,6 +283,7 @@ one is the one used. Press <b>E</b> again to go back to the pairs.</p>
     <kbd>Backspace</kbd> back to the verdict
     <div id="evsel" class="ctx">marked: none yet</div>
   </div>
+  <div class="ctx">When you stop or finish, press E, then Send to the lab.</div>
 </div>
 <div id="done"><h2>Export</h2>
   <p class="ctx">Two files. The first is the positives, for
@@ -576,5 +551,5 @@ async function sendAll(){
     : 'Sent, but no receipt came back. Download both files and email them as well.';
 }
 restore();
-showIntro();
+show();
 </script></body></html>
